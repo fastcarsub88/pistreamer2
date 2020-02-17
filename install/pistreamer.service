@@ -1,0 +1,11 @@
+[Unit]
+Description=Python api for PiStream
+After=network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/uwsgi --ini /var/www/pistreamer/api/app.ini
+Restart=on-failure
+User=pi

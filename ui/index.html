@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" charset="utf-8" defer></script>
+    <title>PiStreamer</title>
+  </head>
+  <body>
+    <h2>PiStreamer</h2>
+    <h4>by Haw Creek Tech</h4>
+    <input class="hidden" type="radio" name="stream_tab" id="brdcast_tab" value="" checked>
+    <label class="tab-label" for="brdcast_tab">Broadcast</label>
+    <input class="hidden" type="radio" name="stream_tab" id="listen_tab" value="">
+    <label class="tab-label" for="listen_tab">Listen</label>
+    <div class="dis_no" id="brdcast_tab_div">
+      <button class="btn" id="broadcast_control_btn" type="button" name="broadcast_control_btn">Go Live</button>
+      <button class="btn" id="edit_broadcast_btn" type="button" name="edit_broadcast_btn">Edit Config</button>
+      <div id="audio_level_div">
+        <p>Level RMS: <span id="broadcast_level_rms">N/A</span></p>
+        <p>Level Peak: <span id="broadcast_level_peak">N/A</span></p>
+      </div>
+      <h3>Current Servers</h3>
+      <div id="current_servers_div">
+
+      </div>
+      <div id="local_streams_div">
+
+      </div>
+    </div>
+    <div class="dis_no" id="listen_tab_div">
+      <div class="srch_div">
+        <form class="search-form" name="srch_form" action="" method="post">
+          <input type="search" name="search_input" id="srch_inpt" value="" placeholder="Search">
+          <button class="srch-sbmt" type="submit" name="srch_sbmt"><img src="search_icon1.png" alt=""></button>
+        </form>
+      </div>
+      <div id="saved_streams_div">
+
+      </div>
+    </div>
+    <!-- Modal Start -->
+    <div class="modal-bckgrnd dis_no" id="broadcast_config_elm">
+      <div class="modal">
+        <p id="edit_broadcast_close" class="close_x">&times;</p>
+        <form class="" name="brd_edt_frm" method="post">
+          <div class="cntr">
+            <div class="frm_r" id="bd_edt_elm_tb">
+
+            </div>
+            <fieldset class="frm_r">
+              <legend>Local RTP</legend>
+              <div class="form_inpt_wrp">
+                <label class="form_label" for="lcl_strm">IP</label>
+                <input  class="form_input" type="text" name="lcl_strm" id="lcl_strm" value="">
+              </div>
+              <div class="form_inpt_wrp chk_wpr">
+                <label class="form_label" for="lcl_strm_actv">Enabled</label>
+                <input class="form_input frm_inpt_cb" type="checkbox" name="lcl_strm_actv" id="lcl_strm_actv" value="">
+                <span class="chbx_sp"></span>
+              </div>
+            </fieldset>
+          </div>
+          <button class="btn" type="button" id="config_submit_btn" name="config_submit_btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Modal End-->
+    <div class="modal-bckgrnd dis_no" id="srch_result_modal">
+      <div class="modal" id="srch_result_modal_div">
+
+      </div>
+    </div>
+  </body>
+</html>
