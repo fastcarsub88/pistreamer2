@@ -1,4 +1,3 @@
-import RPi.GPIO as gpio
 import subprocess
 from time import sleep
 import requests
@@ -14,9 +13,3 @@ except:
 local_ip = ip.rstrip()
 params = {"request":"put","local_ip":local_ip,"key":"nga8htHJ04Knbr933","id":"00010"}
 requests.post("http://pistream.hawcreektech.com/ip_service/",data=params)
-
-while True:
-    gpio.wait_for_edge(21,gpio.FALLING)
-    sleep(0.1)
-    if gpio.input(21) == 0:
-        subprocess.call(['sudo','shutdown','now'])

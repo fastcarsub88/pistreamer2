@@ -13,12 +13,12 @@ gst = gstreamr.Gstmr();
 plyr = gstreamr.Playr();
 
 def load_streamer_config():
-    with open('/var/www/pistreamer/api/broadcastconf.json') as f:
+    with open('broadcastconf.json') as f:
         gst.config = f.read()
 
 def update_saved_streams():
     global savd_strms
-    with open('/var/www/pistreamer/api/saved_streams.json') as s:
+    with open('saved_streams.json') as s:
         savd_strms = s.read()
     print savd_strms
 
