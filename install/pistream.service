@@ -6,6 +6,6 @@ After=network-online.target
 WantedBy=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/uwsgi --ini /var/www/pistreamer/api/app.ini
+ExecStart=/usr/bin/uwsgi --ini /opt/pistream/app/app.ini
 Restart=on-failure
-User=pi
+User=pistream

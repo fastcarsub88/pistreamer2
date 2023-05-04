@@ -1,6 +1,11 @@
 #!/bin/bash
-if [[ $1 != 'install' && $1 != 'update' && $1 != 'uninstall' ]]; then
+if [[ $1 != 'install' && $1 != 'update' && $1 != 'uninstall' && $1 != 'update_html' ]]; then
   echo 'Pass "install" or "update" or "uninstall"'
+  exit 1
+fi
+if [[ $1 == 'update_html' ]]; then
+  cp -r ui/* /opt/pistream/html/
+  echo 'done'
   exit 1
 fi
 if [[ $1 == 'uninstall' ]]; then
@@ -11,12 +16,12 @@ if [[ $1 == 'uninstall' ]]; then
   echo "Remove all packages? Type 'yes' to remove all apt packages"
   read remove_apt
   if [[ $remove_apt == 'yes' ]]; then
-    apt remove nginx uwsgi uwsgi-plugin-python3 python3-requests libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools -y
-  fi
+    apt remove nginx uwsgi uwsgi-plugin-python3 python3-requests mpd python3-mpd -y
   exit
+  fi
 fi
 if [[ $1 == 'install' ]]; then
-  apt-get install nginx uwsgi uwsgi-plugin-python3 python3-requests libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools -y
+  apt install nginx uwsgi uwsgi-plugin-python3 python3-requests mpd python3-mpd  -y
   getent passwd pistream > /dev/null
   if [[ $? -ne 0 ]]; then
     useradd pistream
@@ -50,7 +55,7 @@ if [[ $1 == 'install' ]]; then
   fi
 fi
 
-cp -r html/* /opt/pistream/html/
+cp -r ui/* /opt/pistream/html/
 cp -r app/* /opt/pistream/app/
 cp install/nginx_conf /opt/pistream/service/
 cp install/pistream.service /opt/pistream/service/

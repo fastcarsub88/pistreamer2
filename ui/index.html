@@ -6,15 +6,19 @@
     <script src="index.js" charset="utf-8" defer></script>
   </head>
   <body>
-    <div class="b">
+    <div class="">
+      <div class="status_box" id="status_box">
+
+      </div>
+    </div>
+    <div class="">
       <label for="">Enter URL</label>
-      <input type="text" name="url_input" value="">
-      <button type="button" name="url_btn">Go</button>
+      <input type="text" name="url_input" id="url_input" placeholder="http://icecast.aleph-com.net:8000/7530165.mp3">
+      <button type="button" name="url_btn" id="url_btn">Go</button>
     </div>
     <div class="dis_no" id="listen_tab_div">
       <div class="srch_div">
         <input type="search" name="search_input" id="srch_inpt" value="" placeholder="Search">
-        <button class="srch-sbmt" type="submit" name="srch_sbmt"><img src="search_icon1.png" alt=""></button>
       </div>
       <div id="online_stream_list_div">
 

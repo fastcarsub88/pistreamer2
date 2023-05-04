@@ -1,9 +1,0 @@
-depends:
-	gstreamer
-	nginx
-	uWSGI
-cp pistreamer folder to /var/www/;
-cp or link install files to right location:
-	nginx_pistreamer -> /etc/nginx/sites-enabled
-	pistreamer.service, pistreamer_extra.service -> /etc/systemd/system
-

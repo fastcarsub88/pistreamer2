@@ -1,10 +1,10 @@
 server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-        
+
 #        access_log /dev/null;
 
-	root /var/www/html;
+	root /opt/pistream/html;
 
 	index index.html;
 
@@ -13,7 +13,7 @@ server {
 	location / {
 		try_files $uri $uri/ =404;
 	}
-	
+
 	location ~ /api {
 		include uwsgi_params;
 		uwsgi_pass 127.0.0.1:5590;
