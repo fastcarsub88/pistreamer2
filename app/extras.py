@@ -1,9 +1,4 @@
-import subprocess
-from time import sleep
-import requests
-
-gpio.setmode(gpio.BCM)
-gpio.setup(21, gpio.IN, pull_up_down=gpio.PUD_UP)
+import subprocess, requests
 
 try:
     ip = subprocess.check_output("ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'",shell=True)

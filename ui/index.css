@@ -1,0 +1,179 @@
+html{font-size: 16px; text-align: center; height: 100%}
+body{
+  font-family: sans-serif;
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(141deg, #fad88b, transparent);
+}
+button,input{
+  font-size: 1rem;
+  padding: .4rem;
+  border-radius: .4rem;
+  border: 1px solid;
+}
+h3{margin: .5rem}
+.status_box p{
+  color: #484141;
+  text-shadow: 0 0 1px red;
+  margin: 1rem 0.5rem 0.5rem
+}
+.btn1{
+  width: 70px;
+  margin: 0 5px;
+}
+.grid_container, .auto_container{padding: 5px}
+.auto_container{
+  overflow: auto;
+}
+.container{
+  display: grid;
+  grid-template-rows: 140px 110px 1fr;
+  height: 100%;
+}
+.hidden{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.box_border{
+    border-radius: 1rem;
+    border: 1px solid;
+    width: 80vw;
+    margin: auto;
+    background: #ffffffa6;
+    box-shadow: inset 0 0 10px white;
+    max-width: 900px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.online_stream_list_wrpr{
+  background-image: url(icon.png);
+  background-repeat: no-repeat;
+  background-position: 95% 95%;
+  background-blend-mode: overlay;
+  background-size: 45%;
+  display: grid;
+  grid-template-rows: 40px 35px 1fr;
+}
+#online_stream_list_div{overflow: auto;}
+/*generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler*/
+input[type=range].styled-slider {
+  height: 20px;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  width: 90%;
+}
+
+/*progress support*/
+input[type=range].styled-slider.slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 25px + var(--ratio) * (100% - 25px));
+}
+
+input[type=range].styled-slider:focus {
+  outline: none;
+}
+
+/*webkit*/
+input[type=range].styled-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  background: #f94c4c;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: calc(max((15px - 1px - 1px) * 0.5,0px) - 25px * 0.5);
+}
+
+input[type=range].styled-slider::-webkit-slider-runnable-track {
+  height: 15px;
+  border: 1px solid #b2b2b2;
+  border-radius: 8px;
+  background: #efefef;
+  box-shadow: none;
+}
+
+input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+  background: linear-gradient(#f94c4c,#f94c4c) 0/var(--sx) 100% no-repeat, #efefef;
+}
+
+/*mozilla*/
+input[type=range].styled-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  background: #f94c4c;
+  border: none;
+  box-shadow: 0 0 2px black;
+}
+
+input[type=range].styled-slider::-moz-range-track {
+  height: max(calc(15px - 1px - 1px),0px);
+  border: 1px solid #b2b2b2;
+  border-radius: 8px;
+  background: #efefef;
+  box-shadow: none;
+}
+
+input[type=range].styled-slider.slider-progress::-moz-range-track {
+  background: linear-gradient(#f94c4c,#f94c4c) 0/var(--sx) 100% no-repeat, #efefef;
+}
+
+/*ms*/
+input[type=range].styled-slider::-ms-fill-upper {
+  background: transparent;
+  border-color: transparent;
+}
+
+input[type=range].styled-slider::-ms-fill-lower {
+  background: transparent;
+  border-color: transparent;
+}
+
+input[type=range].styled-slider::-ms-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  background: #f94c4c;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+input[type=range].styled-slider::-ms-track {
+  height: 15px;
+  border-radius: 8px;
+  background: #efefef;
+  border: 1px solid #b2b2b2;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+  height: max(calc(15px - 1px - 1px),0px);
+  border-radius: 8px 0 0 8px;
+  margin: -1px 0 -1px -1px;
+  background: #f94c4c;
+  border: 1px solid #b2b2b2;
+  border-right-width: 0;
+}
+
+@keyframes pulse_color {
+  0%{
+    color:#dddddd
+  }
+  50% {
+    color: red
+  }
+  100%{
+    color: #dddddd
+  }
+}

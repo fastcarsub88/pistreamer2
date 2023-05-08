@@ -2,26 +2,36 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png">
     <title>PiStream</title>
+    <link rel="stylesheet" href="index.css">
     <script src="index.js" charset="utf-8" defer></script>
   </head>
   <body>
-    <div class="">
-      <div class="status_box" id="status_box">
-
+    <div class="container">
+      <div class="grid_container">
+        <div class="box_border status_box" id="status_box">
+          <p>Status - Idle</p>
+        </div>
       </div>
-    </div>
-    <div class="">
-      <label for="">Enter URL</label>
-      <input type="text" name="url_input" id="url_input" placeholder="http://icecast.aleph-com.net:8000/7530165.mp3">
-      <button type="button" name="url_btn" id="url_btn">Go</button>
-    </div>
-    <div class="dis_no" id="listen_tab_div">
-      <div class="srch_div">
-        <input type="search" name="search_input" id="srch_inpt" value="" placeholder="Search">
+      <div class="grid_container">
+        <div class="box_border">
+          <h3>Custom Stream</h3>
+          <input type="text" name="url_input" id="url_input" placeholder="http://icecast.aleph-com.net:8000/7530165.mp3">
+          <button type="button" name="url_btn" id="url_btn">Go</button>
+        </div>
       </div>
-      <div id="online_stream_list_div">
+      <div class="auto_container">
+        <div class="box_border online_stream_list_wrpr">
+          <h3>Congregations</h3>
+          <div class="srch_div">
+            <input type="search" name="search_input" id="srch_inpt" value="" placeholder="Search">
+          </div>
+          <div id="online_stream_list_div">
 
+          </div>
+        </div>
       </div>
     </div>
   </body>

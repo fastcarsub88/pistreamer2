@@ -40,39 +40,43 @@ function searchOnlineList(str) {
   onlineListStr = onlineStreamListDiv.innerHTML
   var div = document.createElement('div')
   onlineStreamsList.forEach((item, i) => {
-    if (item.id.includes(str)) {
+    if (item.id.includes(str.toLowerCase())) {
       div.append(item)
     }
   })
-  onlineStreamListDiv.innerHTML = div.innerHTML
+  onlineStreamListDiv.innerHTML = ''
+  onlineStreamListDiv.append(div)
+}
+function createPlayStatus(msg,btnMsg) {
+  var div = document.createElement('div')
+  var div2 = document.createElement('div')
+  div.append(createPar(msg))
+  div.append(createVol())
+  div2.append(createBtn(btnMsg,pause))
+  div2.append(createBtn("Stop",stop))
+  div.append(div2)
+  return div
 }
 function checkStateChange(status) {
   if (status.state != playrState) {
     playrState = status.state
     if (status.state == 'play') {
-      var div = document.createElement('div')
-      div.append(createPar("Playing - "+status.name))
-      div.append(createVol(status.volume))
-      div.append(createBtn("Pause",pause))
-      div.append(createBtn("Stop",stop))
       statusBox.innerHTML = ''
-      statusBox.append(div)
+      statusBox.append(createPlayStatus("Playing - "+status.name,"Pause"))
+      initSliderProgress()
     }
     if (status.state == 'pause') {
-      var div = document.createElement('div')
-      div.append(createPar("Paused - "+status.name))
-      div.append(createVol(status.volume))
-      div.append(createBtn("Resume",pause))
-        div.append(createBtn("Stop",stop))
       statusBox.innerHTML = ''
-      statusBox.append(div)
+      statusBox.append(createPlayStatus("Paused - "+status.name,"Resume"))
+      initSliderProgress()
     }
     if (status.state == 'stop') {
-      statusBox.innerHTML = ''
+      statusBox.innerHTML = '<p>Status - Idle</p>'
     }
   }
   if (status.volume) {
     volume_slider.value = status.volume
+    initSliderProgress()
   }
 }
 function createBtn(msg,func) {
@@ -95,7 +99,7 @@ function createVol(vol) {
   slider.max = 100
   slider.name = "volume_slider"
   slider.id = "volume_slider"
-  slider.classList.add("volume_slider")
+  slider.classList.add("styled-slider","slider-progress")
   slider.value = vol
   slider.onchange = function () {
     window.clearTimeout(poll.itrvl)
@@ -168,3 +172,11 @@ buildStreamList()
 poll.polling = true
 getStatus()
 poll.poll()
+function initSliderProgress() {
+  for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+    e.style.setProperty('--value', e.value);
+    e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+    e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+    e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+  }
+}

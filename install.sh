@@ -63,8 +63,13 @@ cp install/pistream_extra.service /opt/pistream/service/
 
 if [[ $1 == 'install' ]]; then
   mpd_output='audio_output {
-       type            "alsa"
-       name            "My ALSA Device"
+	type		      "alsa"
+	name		      "My ALSA Device"
+	device		    "hw:0,0"
+	mixer_type    "software"
+	mixer_device	"default"
+	mixer_control	"PCM"
+	mixer_index	  "0"
 }'
   echo "Enter alsa or pulse?"
   read audio_device
@@ -80,7 +85,9 @@ playlist_directory      "/var/lib/mpd/playlists"
 db_file                 "/var/lib/mpd/mpd.db"
 user                            "mpd"
 bind_to_address                 "localhost"
-input {plugin "curl"}
+input {
+  plugin "curl"
+}
 decoder {
         plugin                  "hybrid_dsd"
         enabled                 "no"
@@ -90,7 +97,8 @@ decoder {
         enabled       "no"
 }'
   mv /etc/mpd.conf /etc/mpd.conf.bak
-  echo "${mpd_config} ${mpd_output}" >> /etc/mpd.conf
+  echo "${mpd_config}
+${mpd_output}" >> /etc/mpd.conf
   ln -s /opt/pistream/service/nginx_conf /etc/nginx/sites-enabled/
   systemctl enable /opt/pistream/service/pistream.service
   systemctl enable /opt/pistream/service/pistream_extra.service
