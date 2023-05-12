@@ -10,6 +10,7 @@ button,input{
   padding: .4rem;
   border-radius: .4rem;
   border: 1px solid;
+  color: black;
 }
 h3{margin: .5rem}
 .status_box p{
