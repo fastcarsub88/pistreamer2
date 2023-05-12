@@ -4,6 +4,7 @@ if [[ $1 != 'install' && $1 != 'update' && $1 != 'uninstall' && $1 != 'update_ht
   exit 1
 fi
 if [[ $1 == 'update_html' ]]; then
+  rm -r /opt/pistream/html/
   cp -r ui/* /opt/pistream/html/
   echo 'done'
   exit 1
@@ -53,6 +54,11 @@ if [[ $1 == 'install' ]]; then
     systemctl enable wg-quick@wg0
     echo "wg set wg0 peer $(cat /etc/wireguard/publickey) allowed-ips $ip"
   fi
+fi
+
+if [[ $1 == 'update' ]]; then
+  rm -r /opt/pistream/html/*
+  rm -r /opt/pistream/app/*
 fi
 
 cp -r ui/* /opt/pistream/html/
