@@ -3,6 +3,7 @@ if [[ $1 != 'install' && $1 != 'update' && $1 != 'uninstall' && $1 != 'update_ht
   echo 'Pass "install" or "update" or "uninstall"'
   exit 1
 fi
+git pull
 if [[ $1 == 'update_html' ]]; then
   rm -r /opt/pistream/html/
   cp -r ui/* /opt/pistream/html/
