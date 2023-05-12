@@ -4,6 +4,7 @@ var statusBox = document.getElementById('status_box')
 var onlineStreamsList
 var playrState = 'stop'
 var volumeState = '100'
+var volume_slider = {};
 var poll = {
   polling : false,
   slow : false,
